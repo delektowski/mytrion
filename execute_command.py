@@ -11,4 +11,4 @@ class ExecuteCommand(ConnectServer):
         for command in self.commands:
             _stdin, _stdout, _stderr = self.connection().exec_command(command.text)
             response = _stdout.read().decode()
-            print(response)
+            return response
