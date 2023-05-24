@@ -7,5 +7,5 @@ hosts = parsed_xml.get_hosts()
 commands = parsed_xml.get_commands()
 
 display_responses = DisplayResponses(hosts, commands)
-display_responses.execute_commands()
+display_responses.display_table()
 
