@@ -8,7 +8,9 @@ class ExecuteCommand(ConnectServer):
         self.commands = commands
 
     def exec_cmd(self):
+        responses = []
         for command in self.commands:
-            _stdin, _stdout, _stderr = self.connection().exec_command(command.text)
+            _stdin, _stdout, _stderr = self.connection().exec_command(command)
             response = _stdout.read().decode()
-            return response
+            responses.append(response)
+        return responses

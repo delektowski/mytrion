@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data>
+    <hosts>
+        <host ip="IP">
+            <credentials>
+                <pkey_file>PATH_TO_ID_RSA</pkey_file>
+            </credentials>
+            <users>
+                <user type="root">ROOT_USER</user>
+                <user type="regular">REGULAR_USER</user>
+                <user type="regular">ANOTHER_REGULAR_USER</user>
+            </users>
+        </host>
+    </hosts>
+    <commands>
+        <command type="bind-user">COMMAND</command>
+    </commands>
+</data>

@@ -9,7 +9,6 @@ class ConnectServer:
         self.pkey_file = pkey_file
 
     def __key_based_connect(self):
-
         pkey = paramiko.RSAKey.from_private_key_file(self.pkey_file)
         client = paramiko.SSHClient()
         policy = paramiko.AutoAddPolicy()

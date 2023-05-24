@@ -4,7 +4,6 @@ from custom_exception import CustomException
 class HostData:
 
     def __init__(self, host):
-
         self.host = host
 
     def get_credentials(self):
@@ -15,7 +14,7 @@ class HostData:
     def get_ip(self):
         return self.host.attrib["ip"]
 
-    def get_root(self):
+    def get_root_user(self):
         users = self.host.find("users")
         for user in users:
             if user.attrib["type"] == "root":
@@ -23,7 +22,12 @@ class HostData:
             else:
                 raise CustomException("Provide a root to xml!")
 
+    def get_regular_users(self):
+        users = self.host.find("users")
+        regular_users = [regular_user for regular_user in users if regular_user.attrib["type"] == "regular"]
+        return regular_users
+
     def handle_host_data(self):
         host_data = {"ip": self.get_ip(), "pkey": self.get_credentials(),
-                     "user": self.get_root()}
+                     "user": self.get_root_user(), "users": self.get_regular_users()}
         return host_data
