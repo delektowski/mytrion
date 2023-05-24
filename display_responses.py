@@ -22,6 +22,13 @@ class DisplayResponses:
                 updated_commands.append(command.text)
         return updated_commands
 
+    @staticmethod
+    def add_row_divider(columns_number):
+        divider = []
+        for column in range(columns_number):
+            divider.append(" ")
+        return divider
+
     def __handle_table_data(self, responses, host_user):
         for resp in responses:
             extract_data = ExtractData(resp)
@@ -29,7 +36,8 @@ class DisplayResponses:
             title_value_dict["User"] = host_user.text
             if len(self.columns) == 0:
                 self.columns = list(title_value_dict.keys())
-            self.rows.append(list(title_value_dict.values()))
+            self.rows.extend([DisplayResponses.add_row_divider(len(self.columns)), list(title_value_dict.values()),
+                              DisplayResponses.add_row_divider(len(self.columns))])
 
     def __execute_commands(self):
         for host in self.hosts:
