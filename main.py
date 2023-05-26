@@ -6,6 +6,6 @@ parsed_xml = ParseXml(xml_file)
 hosts = parsed_xml.get_hosts()
 commands = parsed_xml.get_commands()
 
-display_responses = DisplayResponses(hosts, commands)
-display_responses.display_table()
+responses = DisplayResponses(hosts, commands)
+responses.display_table()
 
