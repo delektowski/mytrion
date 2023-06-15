@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 
-class ParseXml:
+class ParserXml:
 
     def __init__(self, xml_file):
         self.root = ET.parse(xml_file).getroot()

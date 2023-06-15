@@ -1,7 +1,7 @@
 import re
 
 
-class ExtractData:
+class DataExtraction:
 
     def __init__(self, data):
         self.data_list = re.findall(r'.*$', data, re.MULTILINE)
