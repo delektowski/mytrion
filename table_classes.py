@@ -1,3 +1,4 @@
+
 from server_classes import ExecuteCommand
 from data_extraction import DataExtraction
 from server_classes import HostData
@@ -15,14 +16,14 @@ class CliTable:
     @staticmethod
     def is_valid_date(value):
         try:
-            datetime.strptime(value, "%B %d, %Y")
+            datetime.strptime(value, "%b %d, %Y")
             return True
         except ValueError:
             return False
 
     @staticmethod
     def is_date_past(date_string):
-        date_object = datetime.strptime(date_string, "%B %d, %Y").date()
+        date_object = datetime.strptime(date_string, "%b %d, %Y").date()
         current_date = date.today()
         if date_object > current_date:
             return False
